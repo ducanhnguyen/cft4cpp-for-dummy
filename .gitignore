@@ -1,0 +1,9 @@
+/bin/
+*.o
+*.layout
+.idea/
+out/
+/ava.iml
+/nio-data.txt
+ava.iml
+nio-data.txt
