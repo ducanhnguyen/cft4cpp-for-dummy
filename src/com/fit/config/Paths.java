@@ -17,7 +17,7 @@ public class Paths {
 	public static String TYPEDEF_NODE_NAME_TEST = "..\\ava\\data-test\\ducanh\\TypedefNodeNameTest";
 	public static String TYPE_DEPENDENCY_GENERATION_TEST = "..\\ava\\data-test\\ducanh\\TypeDependencyGenerationTest\\";
 	public static String TEST_PATH_GENERATION_TEST = "..\\ava\\data-test\\ducanh\\TestpathGenerationTest\\";
-	public static String SYMBOLIC_EXECUTION_TEST = "..\\ava\\data-test\\ducanh\\SymbolicExecutionTest\\";
+	public static String SYMBOLIC_EXECUTION_TEST = "data-test\\ducanh\\SymbolicExecutionTest\\";
 	public static String COMBINED_STATIC_AND_DYNAMIC_GENERATION = "..\\ava\\data-test\\ducanh\\CombinedStaticAndDynamicGen\\";
 	public static String STATEMENT_COVERAGE_COMPUTATION_TEST = "..\\ava\\data-test\\ducanh\\StatementCoverageComputationTest\\";
 	public static String FUNCTION_TRANSFORMER_TEST = "..\\ava\\data-test\\ducanh\\FunctionTransformerTest\\";
@@ -44,14 +44,16 @@ public class Paths {
 	public static String TREE_EXPRESSION_GENERATION_TEST = "..\\ava\\data-test\\ducanh\\TreeExpressionGenerationTest\\";
 	public static String SAMPLE_CODE = "..\\ava\\data-test\\ducanh\\SampleCode\\";
 	public static String ASTYLE = "..\\ava\\lib\\AStyle.exe";
-	public static String TSDV_R1 = "..\\ava\\data-test\\tsdv\\Sample_for_R1\\";
+	public static String TSDV_R1 = "data-test\\tsdv\\Sample_for_R1\\";
 	public static String TSDV_R1_10 = "..\\ava\\data-test\\tsdv\\Sample_for_R1_10file\\";
 	public static String TSDV_R1_2 = "..\\ava\\data-test\\tsdv\\Sample_for_R1_2\\";
 	public static String TSDV_R1_3 = "..\\ava\\data-test\\tsdv\\Sample_for_R1_3_Cpp11\\";
-	public static String TSDV_R1_4 = "..\\ava\\data-test\\tsdv\\Sample_for_R1_4\\";
+	public static String TSDV_R1_4 = "data-test\\tsdv\\Sample_for_R1_4\\";
 	public static String CORE_UTILS = "..\\ava\\data-test\\ducanh\\coreutils-8.24";
 	public static String RETURN_ENUM = "..\\ava\\data-test\\tsdv\\SampleSource-2017A\\return_enum\\";
 	public static String GLOBAL_VARIABLE = "..\\ava\\data-test\\tsdv\\SampleSource-2017A\\global_variable\\";
+	public static String UNSUPPORTED_DATA_TYPES = "data-test\\Binh&Chung\\UnsupportedDataTypesTest\\";
+
 
 	public static class CURRENT_FUNCTION_CONFIGURATION {
 
@@ -80,7 +82,7 @@ public class Paths {
 		/**
 		 * The path of selected project
 		 */
-		public static String ORIGINAL_PROJECT_PATH = "";
+		public static String ORIGINAL_PROJECT_PATH = "D:/SQA/cft4cpp-for-dummy";
 
 		/**
 		 * The path of cloned project
