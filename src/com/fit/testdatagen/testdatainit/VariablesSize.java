@@ -98,5 +98,6 @@ public class VariablesSize {
             public static final int WCHAR__T = 16;
             public static final int ____WCHAR__T = 16;// check later
         }
+
     }
 }

@@ -7,6 +7,8 @@ import com.fit.testdatagen.testdatainit.VariablesSize.BASIC.NUMBER.INTEGER;
 import com.fit.tree.object.IVariableNode;
 import com.fit.utils.IRegex;
 import com.fit.utils.Utils;
+import org.eclipse.cdt.internal.core.pdom.db.IString;
+import org.eclipse.core.internal.utils.IStringPoolParticipant;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -71,6 +73,7 @@ public class VariableTypes {
 
         if (rawType.equals(VOID_TYPE.VOID))
             return VariableTypes.VOID_TYPE.VOID;
+        //if(rawType.equals())
 
         for (String type : VariableTypes.getAllBasicFieldNames(BASIC.class)) {
             String[] types = new String[]{type,
@@ -191,6 +194,27 @@ public class VariableTypes {
         rawType = VariableTypes.deleteSizeFromArray(rawType);
 
         for (String type : VariableTypes.getAllBasicFieldNames(CHARACTER.class)) {
+            String[] types = new String[]{type,
+                    type + VariableTypes.REFERENCE};
+            for (String typeItem : types)
+                if (rawType.equals(typeItem))
+                    return true;
+
+        }
+        return false;
+    }
+
+    public  static boolean isString(String rawType){
+        return VariableTypes.isStringBasic(rawType);
+    }
+
+    public static  boolean isStringBasic(String rawType){
+        rawType = VariableTypes.deleteUnionKeywork(rawType);
+        rawType = VariableTypes.deleteStructKeywork(rawType);
+        rawType = VariableTypes.deleteStorageClasses(rawType);
+        rawType = VariableTypes.deleteSizeFromArray(rawType);
+
+        for (String type : VariableTypes.getAllBasicFieldNames(BASIC.STRINGG.class)) {
             String[] types = new String[]{type,
                     type + VariableTypes.REFERENCE};
             for (String typeItem : types)
@@ -747,6 +771,10 @@ public class VariableTypes {
             public static final String UNSIGNED_CHAR = "unsigned char";
             public static final String WCHAR__T = "wchar_t";
             public static final String ____WCHAR__T = "__wchar_t";
+        }
+
+        public class STRINGG {
+            public  static final String STR ="String";
         }
     }
 

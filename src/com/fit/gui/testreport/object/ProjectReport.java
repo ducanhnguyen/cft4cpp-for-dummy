@@ -48,7 +48,7 @@ public class ProjectReport implements IProjectReport {
     @Override
     public void addFunction(IFunctionNode function) {
         ISourcecodeFileNode sourcecodeFileNode = Utils.getSourcecodeFile(function);
-        /**
+         /**
          * Hai trường hợp xảy ra:
          *
          * - Tệp chứa hàm đã thêm vào trước đó

@@ -10,6 +10,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
+import javax.swing.tree.TreeNode;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -127,7 +128,7 @@ public abstract class TreeExplorer<E> extends WebTree implements Comparator<E> {
                 TreeNode child = new TreeNode(item);
                 node.add(child);
             }
-        node.sortChild((n1, n2) -> this.compare(n1.getItem(), n2.getItem()));
+        node.sortChild((n1, n2) -> this.compare(((TreeNode) n1).getItem(), ((TreeNode) n2).getItem()));
 
         this.mTreeModel.reload(node);
     }
@@ -282,9 +283,10 @@ public abstract class TreeExplorer<E> extends WebTree implements Comparator<E> {
             return getChildCount() == 1 && !this.getChildAt(0).hasItem();
         }
 
-        public void sortChild(Comparator<TreeNode> c) {
-            if (children != null)
+        public void sortChild(Comparator<? super javax.swing.tree.TreeNode> c) {
+            if (children != null) {
                 children.sort(c);
+            }
         }
 
     }
