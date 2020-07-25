@@ -143,7 +143,6 @@ public class VariableTypes {
 
         }
         return false;
-
     }
 
     public static boolean isChTwoLevel(String rawType) {
@@ -207,7 +206,21 @@ public class VariableTypes {
     public  static boolean isString(String rawType){
         return VariableTypes.isStringBasic(rawType);
     }
+    public static boolean isStringOneDimension(String rawType){
+        rawType = VariableTypes.deleteUnionKeywork(rawType);
+        rawType = VariableTypes.deleteStructKeywork(rawType);
+        rawType = VariableTypes.deleteStorageClasses(rawType);
+        rawType = VariableTypes.deleteSizeFromArray(rawType);
 
+        for (String type : VariableTypes.getAllBasicFieldNames(CHARACTER.class)) {
+            String[] types = new String[]{type,
+                    type + VariableTypes.ONE_DIMENSION};
+            for (String typeItem : types)
+                if (rawType.equals(typeItem))
+                    return true;
+        }
+        return false;
+    }
     public static  boolean isStringBasic(String rawType){
         rawType = VariableTypes.deleteUnionKeywork(rawType);
         rawType = VariableTypes.deleteStructKeywork(rawType);

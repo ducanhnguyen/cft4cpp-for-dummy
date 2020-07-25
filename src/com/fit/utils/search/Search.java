@@ -12,7 +12,7 @@ import java.util.List;
 public class Search implements ISearch {
 
     /**
-     * Tìm các con có tên xác định của một node
+     * Tìm các con có tên  xác định của một node
      *
      * @param parent
      * @param name

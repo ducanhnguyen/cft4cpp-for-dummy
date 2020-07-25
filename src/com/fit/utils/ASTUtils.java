@@ -27,7 +27,6 @@ public class ASTUtils {
             throw new RuntimeException(e);
         }
     }
-
     public static void main(String[] args) {
         String path = "data-test/samvu/1_Load_Tree.cpp";
         ASTUtils.printTree(path);

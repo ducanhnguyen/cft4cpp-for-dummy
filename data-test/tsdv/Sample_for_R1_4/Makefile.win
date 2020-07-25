@@ -1,8 +1,8 @@
 # Project: Sample_for_R1_4
 # Makefile created by Dev-C++ 5.11
 
-CPP      = g++.exe
-CC       = gcc.exe
+CPP="C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/g++.exe"
+CC="C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc.exe"
 WINDRES  = windres.exe
 OBJ      = main.o TypeDef.o NonLinear.o Complex.o PassArgs.o Age.o cities.o asa005.o r85.o asa103.o
 LINKOBJ  = main.o TypeDef.o NonLinear.o Complex.o PassArgs.o Age.o cities.o asa005.o r85.o asa103.o
@@ -53,3 +53,5 @@ r85.o: r85.cpp
 
 asa103.o: asa103.cpp
 	$(CPP) -c asa103.cpp -o asa103.o $(CXXFLAGS)
+
+

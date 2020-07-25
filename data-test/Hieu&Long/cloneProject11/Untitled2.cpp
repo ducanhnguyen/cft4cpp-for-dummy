@@ -1,13 +1,23 @@
 #include <iostream>
+#include <cstdlib>
+#include <time.h>
 using namespace std;
 
-void f(int& a, int&b){
-	cout<<a+b;
+void test(int a, int b){
+	if(a>b){
+		a++;
+	}
+	else if(b>a){
+		b++;
+	}
+	else {
+		a--;
+		b--;
+	}
 }
 
 int main(){
-	int a=1,b=2;
-	f(a,b);
+	cout<<"test"<<endl;
+		
 	return 0;
 }
-

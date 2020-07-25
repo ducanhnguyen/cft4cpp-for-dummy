@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.fit.testdatagen.se.memory.*;
 import org.apache.log4j.Logger;
 import org.eclipse.cdt.core.dom.ast.IASTBinaryExpression;
 import org.eclipse.cdt.core.dom.ast.IASTDeclaration;
@@ -48,50 +49,6 @@ import com.fit.normalizer.FunctionNormalizer;
 import com.fit.normalizer.UnaryNormalizer;
 import com.fit.parser.projectparser.ProjectParser;
 import com.fit.testdatagen.AbstractTestdataGeneration;
-import com.fit.testdatagen.se.memory.ArraySymbolicVariable;
-import com.fit.testdatagen.se.memory.BasicSymbolicVariable;
-import com.fit.testdatagen.se.memory.CharacterSymbolicVariable;
-import com.fit.testdatagen.se.memory.ClassSymbolicVariable;
-import com.fit.testdatagen.se.memory.EnumSymbolicVariable;
-import com.fit.testdatagen.se.memory.ISymbolicVariable;
-import com.fit.testdatagen.se.memory.IVariableNodeTable;
-import com.fit.testdatagen.se.memory.LogicCell;
-import com.fit.testdatagen.se.memory.NumberSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneDimensionCharacterSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneDimensionClassSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneDimensionEnumSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneDimensionNumberSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneDimensionStructSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneDimensionSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneDimensionUnionSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneDimensionZ3ToIntSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneLevelCharacterSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneLevelClassSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneLevelEnumSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneLevelNumberSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneLevelStructSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneLevelSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneLevelUnionSymbolicVariable;
-import com.fit.testdatagen.se.memory.PhysicalCell;
-import com.fit.testdatagen.se.memory.PointerSymbolicVariable;
-import com.fit.testdatagen.se.memory.StructSymbolicVariable;
-import com.fit.testdatagen.se.memory.SymbolicVariable;
-import com.fit.testdatagen.se.memory.TwoDimensionCharacterSymbolicVariable;
-import com.fit.testdatagen.se.memory.TwoDimensionClassSymbolicVariable;
-import com.fit.testdatagen.se.memory.TwoDimensionEnumSymbolicVariable;
-import com.fit.testdatagen.se.memory.TwoDimensionNumberSymbolicVariable;
-import com.fit.testdatagen.se.memory.TwoDimensionStructSymbolicVariable;
-import com.fit.testdatagen.se.memory.TwoDimensionSymbolicVariable;
-import com.fit.testdatagen.se.memory.TwoDimensionUnionSymbolicVariable;
-import com.fit.testdatagen.se.memory.TwoLevelCharacterSymbolicVariable;
-import com.fit.testdatagen.se.memory.TwoLevelClassSymbolicVariable;
-import com.fit.testdatagen.se.memory.TwoLevelEnumSymbolicVariable;
-import com.fit.testdatagen.se.memory.TwoLevelNumberSymbolicVariable;
-import com.fit.testdatagen.se.memory.TwoLevelStructSymbolicVariable;
-import com.fit.testdatagen.se.memory.TwoLevelSymbolicVariable;
-import com.fit.testdatagen.se.memory.TwoLevelUnionSymbolicVariable;
-import com.fit.testdatagen.se.memory.UnionSymbolicVariable;
-import com.fit.testdatagen.se.memory.VariableNodeTable;
 import com.fit.testdatagen.se.normalization.PointerAccessNormalizer;
 import com.fit.testdatagen.se.normalstatementparser.BinaryAssignmentParser;
 import com.fit.testdatagen.se.normalstatementparser.ConditionParser;
@@ -588,6 +545,12 @@ public class SymbolicExecution implements ISymbolicExecution {
 					((TwoLevelCharacterSymbolicVariable) v).getReference().getBlock().setName(defaultValue);
 
 				} else
+				/*
+				 *------------------STRING-------------
+				 */
+				if(VariableTypes.isStringBasic(realType)){
+					v = new StringSymbolicVariable(name, realType, ISymbolicVariable.GLOBAL_SCOPE, defaultValue);
+				}
 				/*
 				 * ----------------STRUCTURE----------------------
 				 */

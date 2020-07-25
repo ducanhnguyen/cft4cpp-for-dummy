@@ -1,8 +1,8 @@
 # Project: demoTest
 # Makefile created by Dev-C++ 5.11
 
-CPP="D:/Dev-Cpp/MinGW64/bin/g++.exe"
-CC="D:/Dev-Cpp/MinGW64/bin/gcc.exe"
+CPP="C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/g++.exe"
+CC="C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc.exe"
 WINDRES  = windres.exe
 OBJ      = Untitled2.o
 LINKOBJ  = Untitled2.o

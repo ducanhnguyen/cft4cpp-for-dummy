@@ -29,10 +29,6 @@ void printScore(int wrong, string question){
 	cout << "-Your Question: " << question <<  endl;
 }
 
-int test(string c){
-	if(c.length()>10)return 0;
-	return 1;
-}
 
 bool checkCharacter(char yourChar, string question, string resultWord){/// question : hien ra man hinh: "-----" .....con resultWord la kqua de ktra
 	int n = resultWord.length();

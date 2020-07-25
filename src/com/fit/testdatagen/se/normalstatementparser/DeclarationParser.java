@@ -1,5 +1,6 @@
 package com.fit.testdatagen.se.normalstatementparser;
 
+import com.fit.testdatagen.se.memory.*;
 import org.eclipse.cdt.core.dom.ast.IASTDeclarator;
 import org.eclipse.cdt.core.dom.ast.IASTInitializer;
 import org.eclipse.cdt.core.dom.ast.IASTNode;
@@ -7,18 +8,6 @@ import org.eclipse.cdt.core.dom.ast.IASTSimpleDeclaration;
 import org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTArrayModifier;
 import org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTPointer;
 
-import com.fit.testdatagen.se.memory.CharacterSymbolicVariable;
-import com.fit.testdatagen.se.memory.EnumSymbolicVariable;
-import com.fit.testdatagen.se.memory.NumberSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneDimensionCharacterSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneDimensionNumberSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneLevelCharacterSymbolicVariable;
-import com.fit.testdatagen.se.memory.OneLevelNumberSymbolicVariable;
-import com.fit.testdatagen.se.memory.SimpleStructureSymbolicVariable;
-import com.fit.testdatagen.se.memory.StructSymbolicVariable;
-import com.fit.testdatagen.se.memory.SymbolicVariable;
-import com.fit.testdatagen.se.memory.UnionSymbolicVariable;
-import com.fit.testdatagen.se.memory.VariableNodeTable;
 import com.fit.testdatagen.testdatainit.VariableTypes;
 import com.fit.tree.object.ClassNode;
 import com.fit.tree.object.EnumNode;
@@ -62,8 +51,11 @@ public class DeclarationParser extends StatementParser {
 			String name = declarator.getName().getRawSignature();
 
 			SymbolicVariable v = null;
-
-			if (VariableTypes.isNumBasic(type)) {
+			if(VariableTypes.isStringBasic(type)) {
+				String defaultStr = "Hello_Teag_John";
+				v = new StringSymbolicVariable(name, type, scopeLevel, defaultStr);
+			}
+			else if (VariableTypes.isNumBasic(type)) {
 				String defaultValue = "0";
 				v = new NumberSymbolicVariable(name, type, scopeLevel, defaultValue);
 
